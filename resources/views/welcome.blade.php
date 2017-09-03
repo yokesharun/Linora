@@ -73,9 +73,27 @@
                 </div>
                 <h3>Best way to share a link within a milli second.</h3>
 
-                {!! QrCode::size(250)->generate($code); !!}
-                
+                <div id="qr_code">
+                    {!! QrCode::size(250)->generate($code); !!}
+                </div>
+
+                <a href="" class="result"></a>
+
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            (function worker() {
+              $.get('/show',{ code : "{{$code}}" }, function(data) {
+
+                if(data.status == 'USED' && data.value != ''){
+                    $('#qr_code').fadeOut(100);
+                    $('.result').attr('href',data.value).html(data.value).fadeIn(200);
+                }
+
+                setTimeout(worker, 5000);
+              });
+            })();
+        </script>
     </body>
 </html>
