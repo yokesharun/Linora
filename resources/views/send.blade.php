@@ -89,7 +89,7 @@
                         <div id="qr_code">
                             {!! QrCode::size(250)->generate(Request::get('url')); !!}
                         </div>
-                        <p>Note : Scan this QR code in Linora Android App</p>
+                        <p>Note : Scan this QR code in your Linora Android App</p>
                     @endif
                 @endif
 

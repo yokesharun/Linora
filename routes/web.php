@@ -13,6 +13,6 @@
 
 Route::get('/', 		'HomeController@index');
 Route::get('/send', 	'HomeController@send');
-Route::get('/recieve', 	'HomeController@recieve');
+Route::get('/receive', 	'HomeController@receive');
 Route::get('/show', 	'HomeController@show');
 Route::post('/link', 	'HomeController@link');

@@ -12,14 +12,14 @@ class HomeController extends Controller
 	    return view('welcome');
     }
 
-    public function recieve(){
+    public function receive(){
 
         try{
             $code = mt_rand(100000,999999);
             QRData::create(['code' => $code, 'status' => 'NEW']);
-            return view('recieve',compact('code'));
+            return view('receive',compact('code'));
         } catch(Exception $e){
-            return $this->recieve();
+            return $this->receive();
         }
     }
 

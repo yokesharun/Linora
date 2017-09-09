@@ -78,7 +78,7 @@
                 <br>
                 <a href="{{url('/send')}}" class="btn btn-default btn-lg">Send</a>
                 &nbsp; &nbsp; &nbsp;
-                <a href="{{url('/recieve')}}" class="btn btn-default btn-lg">Recieve</a>
+                <a href="{{url('/receive')}}" class="btn btn-default btn-lg">Receive</a>
 
             </div>
         </div>
