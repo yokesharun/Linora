@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Linora</title>
+        <title>Linora - Recieve</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -71,16 +71,33 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Linora
+                    Linora - Recieve
                 </div>
-                <h3>Best way to share a link within a milli second.</h3>
-                <br>
-                <br>
-                <a href="{{url('/send')}}" class="btn btn-default btn-lg">Send</a>
-                &nbsp; &nbsp; &nbsp;
-                <a href="{{url('/recieve')}}" class="btn btn-default btn-lg">Recieve</a>
+                <h3><a href="{{url('/')}}" class="btn btn-lg">< Back</a></h3>
+
+                <div id="qr_code">
+                    {!! QrCode::size(250)->generate($code); !!}
+                </div>
+
+                <p>Note : Scan this QR code in Linora Android App</p>
+                
+                <a href="" class="result"></a>
 
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            (function worker() {
+              $.get('/show',{ code : "{{$code}}" }, function(data) {
+
+                if(data.status == 'USED' && data.value != ''){
+                    $('#qr_code').fadeOut(100);
+                    $('.result').attr('href',data.value).html(data.value).fadeIn(200);
+                }
+
+                setTimeout(worker, 5000);
+              });
+            })();
+        </script>
     </body>
 </html>

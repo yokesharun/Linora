@@ -9,14 +9,22 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
+	    return view('welcome');
+    }
 
-    	try{
-	    	$code = mt_rand(100000,999999);
-	    	QRData::create(['code' => $code, 'status' => 'NEW']);
-	    	return view('welcome',compact('code'));
-    	} catch(Exception $e){
-    		return $this->index();
-    	}
+    public function recieve(){
+
+        try{
+            $code = mt_rand(100000,999999);
+            QRData::create(['code' => $code, 'status' => 'NEW']);
+            return view('recieve',compact('code'));
+        } catch(Exception $e){
+            return $this->recieve();
+        }
+    }
+
+    public function send(){
+        return view('send');
     }
 
     public function link(Request $request){

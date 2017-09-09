@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Linora</title>
+        <title>Linora - Send</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -71,14 +71,28 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Linora
+                    Linora - Send
                 </div>
-                <h3>Best way to share a link within a milli second.</h3>
+                <h3><a href="{{url('/')}}" class="btn btn-lg">< Back</a></h3>
+
                 <br>
-                <br>
-                <a href="{{url('/send')}}" class="btn btn-default btn-lg">Send</a>
-                &nbsp; &nbsp; &nbsp;
-                <a href="{{url('/recieve')}}" class="btn btn-default btn-lg">Recieve</a>
+
+                <form class="form-inline">
+                  <div class="form-group">
+                    <input type="url" required style="width: 400px" class="form-control" @if(Request::has('url')) value="{{Request::get('url')}}" @endif placeholder="Enter url" name="url" id="url">
+                  </div>
+                  <button type="submit" class="btn btn-default">Send</button>
+                </form>
+
+                @if(Request::has('url'))
+                    @if(Request::get('url') != '')
+                        <div id="qr_code">
+                            {!! QrCode::size(250)->generate(Request::get('url')); !!}
+                        </div>
+                        <p>Note : Scan this QR code in Linora Android App</p>
+                    @endif
+                @endif
+
 
             </div>
         </div>
