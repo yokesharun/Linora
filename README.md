@@ -4,8 +4,6 @@ Helps you to share a link from mobile to web browser with in a milli second.
 
 Developed and maintained by [Arun Yokesh](https://www.facebook.com/ayokesh).
 
-![Enjoy React Native](https://facebook.github.io/react-native/releases/0.33/img/react-native-congratulations.png)
-
 ## Usage
 
 - Go to the [Linora](http://linora.howlify.com/) website.
