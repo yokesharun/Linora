@@ -6,7 +6,7 @@ Developed and maintained by [Arun Yokesh](https://www.facebook.com/ayokesh).
 
 ## Usage
 
-- Go to the [Linora](http://linora.howlify.com/) website.
+- Install the Chrome extension [Linora](https://chrome.google.com/webstore/detail/linora-share-links-betwee/lgjialkebobgcbdbkafjmcgfeelclcpb?hl=en).
 - Download the linora android application from [Playstore](https://play.google.com/store/apps/details?id=com.amp.passlink&hl=en).
 
 ### Send
